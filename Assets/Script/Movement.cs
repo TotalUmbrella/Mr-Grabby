@@ -11,8 +11,8 @@ public class Movement : MonoBehaviour
     private float sensitivity = 1.8f;
     private float xRotation = 0f;
     public Camera camera;
-    public float jumpHeight = 900f;
-    public float gravity = -1800f;
+    private float jumpHeight = 700f;
+    private float gravity = -1600f;
     private float yvelocity = 0f;
     private float jumpBuffer = 0f;
     private bool land = false;
