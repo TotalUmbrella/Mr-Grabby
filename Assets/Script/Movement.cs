@@ -11,8 +11,8 @@ public class Movement : MonoBehaviour
     private float sensitivity = 1.8f;
     private float xRotation = 0f;
     public Camera camera;
-    private float jumpHeight = 900f;
-    private float gravity = -2150f;
+    public float jumpHeight = 900f;
+    public float gravity = -1800f;
     private float yvelocity = 0f;
     private float jumpBuffer = 0f;
     private bool land = false;
@@ -62,7 +62,7 @@ public class Movement : MonoBehaviour
 
         yvelocity += gravity * Time.deltaTime;
 
-        move = move + Vector3.up * yvelocity * Time.deltaTime * 5;
+        move = move + Vector3.up * yvelocity * Time.deltaTime;
 
         
 
