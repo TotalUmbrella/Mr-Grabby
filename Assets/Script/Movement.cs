@@ -11,8 +11,8 @@ public class Movement : MonoBehaviour
     private float sensitivity = 1.8f;
     private float xRotation = 0f;
     public Camera camera;
-    private float jumpHeight = 700f;
-    private float gravity = -1600f;
+    private float jumpHeight = 550f;
+    private float gravity = -170f;
     private float yvelocity = 0f;
     private float jumpBuffer = 0f;
     private bool land = false;
@@ -44,25 +44,19 @@ public class Movement : MonoBehaviour
         Vector3 right = transform.TransformDirection(Vector3.right);
         Vector3 move = ((forward * Input.GetAxis("Vertical")) * speed + (right * Input.GetAxis("Horizontal")) * speed);
 
-        if (Input.GetKey(KeyCode.Space)){
-            jumpBuffer = 0.01f;
-        }
         jumpBuffer = jumpBuffer - Time.deltaTime;
         if (characterController.isGrounded){
-            if (jumpBuffer > 0) {
-                yvelocity = jumpHeight;
+            if (Input.GetKey(KeyCode.Space)){
+                yvelocity = Mathf.Sqrt(2f * jumpHeight * Mathf.Abs(gravity));
             }
-        }        
-        if (characterController.isGrounded){
             if (yvelocity <= 0 ){
                 yvelocity = 0;
             }
-        }
+        }        
 
-        yvelocity += gravity * Time.deltaTime;
+        yvelocity += gravity * Time.fixedDeltaTime;
 
-        move = move + Vector3.up * yvelocity * Time.deltaTime * 5;
-
+        move = move + Vector3.up * yvelocity * Time.fixedDeltaTime;
 
         characterController.Move(move * Time.deltaTime);
     }
