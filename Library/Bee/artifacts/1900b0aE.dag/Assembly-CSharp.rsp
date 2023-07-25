@@ -355,6 +355,7 @@
 "Assets/QuickOutline/Scripts/Outline.cs"
 "Assets/Script/Grab.cs"
 "Assets/Script/Movement.cs"
+"Assets/Script/Push.cs"
 -langversion:9.0
 
 /deterministic

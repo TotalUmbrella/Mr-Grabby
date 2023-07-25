@@ -29,9 +29,6 @@ public class Movement : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * sensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
 
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right = transform.TransformDirection(Vector3.right);
-
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         camera.transform.localRotation = Quaternion.Euler(xRotation, 10, 0);
@@ -42,6 +39,9 @@ public class Movement : MonoBehaviour
             speed = 10f;
         }
         transform.Rotate(Vector3.up * mouseX);
+
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right = transform.TransformDirection(Vector3.right);
         Vector3 move = ((forward * Input.GetAxis("Vertical")) * speed + (right * Input.GetAxis("Horizontal")) * speed);
 
         if (Input.GetKey(KeyCode.Space)){
@@ -61,9 +61,8 @@ public class Movement : MonoBehaviour
 
         yvelocity += gravity * Time.deltaTime;
 
-        move = move + Vector3.up * yvelocity * Time.deltaTime;
+        move = move + Vector3.up * yvelocity * Time.deltaTime * 5;
 
-        
 
         characterController.Move(move * Time.deltaTime);
     }
