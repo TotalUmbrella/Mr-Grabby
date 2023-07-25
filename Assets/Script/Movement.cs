@@ -51,7 +51,6 @@ public class Movement : MonoBehaviour
         if (characterController.isGrounded){
             if (jumpBuffer > 0) {
                 yvelocity = jumpHeight;
-                Debug.Log("balls");
             }
         }        
         if (characterController.isGrounded){
