@@ -42,6 +42,7 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Movement.cs" />
      <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
+     <Compile Include="Assets\Script\Push.cs" />
      <Compile Include="Assets\Script\Grab.cs" />
      <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
      <None Include="Assets\QuickOutline\Readme.txt" />

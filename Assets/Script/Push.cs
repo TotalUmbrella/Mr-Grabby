@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Push : MonoBehaviour
 {
-    float pushPower = 200f;
+    float pushPower = 30f;
     private  CharacterController _characterController;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,6 @@ public class Push : MonoBehaviour
         var pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
  
         // push with move speed but never more than walkspeed
-        body.velocity = pushDir * pushPower * _characterController.velocity.magnitude * Time.deltaTime;
+        body.velocity = pushDir * pushPower * _characterController.velocity.magnitude * Time.fixedDeltaTime;
     }
 }

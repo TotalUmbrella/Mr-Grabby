@@ -67,7 +67,7 @@ public class Grab : MonoBehaviour
     void FixedUpdate(){
             if(grabbedObject) {
                 grabDistance += Input.mouseScrollDelta.y * 1f;
-                grabDistance = Mathf.Clamp(grabDistance, 1.5f, 3f);
+                grabDistance = Mathf.Clamp(grabDistance, 2.5f, 3.5f);
 
                 //set target position and camera vectors
                 Vector3 targetPos = transform.position;
